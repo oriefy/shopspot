@@ -22,6 +22,12 @@ class UserManager(BaseUserManager):
         user_obj.save(using=self._db)
         return user_obj
 
+    def create_staffuser(self, email, password=None):
+        user = self.create_user(
+            email, password=password,
+            is_staff=True
+            )
+        return user
 
 # Create your models here.
 class User(AbstractBaseUser):
