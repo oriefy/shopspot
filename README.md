@@ -36,5 +36,5 @@ can use foreman and gunicorn to run the server locally
 > foreman start
 ```
 ## Hall of fame
-Everyone who contributes to EpPos gets a spot here.
+Everyone who contributes to ShopSpot gets a spot here.
 * [@ZeroCoolHacker](https://github.com/ZeroCoolHacker)
