@@ -31,4 +31,6 @@ class User(AbstractBaseUser):
     date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
 
     USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['email']
+
     
