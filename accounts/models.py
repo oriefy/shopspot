@@ -7,7 +7,16 @@ from django.contrib.auth.models import (
 
 
 class UserManager(BaseUserManager):
-    pass
+    def create_user(self, email, password=None):
+        if not email:
+            raise ValueError("Users must have an email address")
+        
+        user_obj = self.model(
+            email=self.normalize_email(email)
+        )
+        user_obj.set_password(password)
+        user_obj.save(using=self._db)
+        return user_obj
 
 
 # Create your models here.
