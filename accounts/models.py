@@ -44,7 +44,7 @@ class UserManager(BaseUserManager):
 
 # Create your models here.
 class User(AbstractBaseUser):
-    email       = models.EmailField(
+    email = models.EmailField(
         _('Email'),
         max_length=150,
         unique=True,
@@ -53,6 +53,8 @@ class User(AbstractBaseUser):
             'unique': _("That email address is already registered."),
         },
     )
+    first_name = models.CharField(_('first name'), max_length=30, blank=True)
+    last_name = models.CharField(_('last name'), max_length=150, blank=True)
     is_staff = models.BooleanField(
         _('staff status'),
         default=False,
