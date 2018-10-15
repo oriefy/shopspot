@@ -65,6 +65,16 @@ class User(AbstractBaseUser):
         default=False,
         help_text=_('Designates whether the user can perform administrative tasks.'),
     )
+    is_seller = models.BooleanField(
+        _('seller status'),
+        default=False,
+        help_text=_('Designates whether the user can sell items.'),
+    )
+    is_buyer = models.BooleanField(
+        _('buyer status'),
+        default=False,
+        help_text=_('Designates whether the user can buy stuff'),
+    )
     is_active = models.BooleanField(
         _('active'),
         default=True,
