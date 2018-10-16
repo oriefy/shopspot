@@ -1,0 +1,20 @@
+[
+    {
+        "model": "accounts.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$120000$FCtPNznaQ1xp$7yjGCdI66n5P5SS0apFQSjCl6GTIIGhvzxQpljegLXs=",
+            "last_login": null,
+            "email": "admin@oriefy.com",
+            "first_name": "",
+            "last_name": "",
+            "is_staff": true,
+            "is_admin": true,
+            "is_seller": false,
+            "is_buyer": false,
+            "is_active": true,
+            "date_joined": "2018-10-16T06:25:50.248Z"
+        }
+    }
+    ]
+    
