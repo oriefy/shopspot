@@ -25,12 +25,14 @@ And finally you make migrations to the database, create a super user, and run th
 ```bash
 > python manage.py makemigrations
 > python manage.py migrate
-> python manage.py createsuperuser
+> python manage.py loaddata accounts/fixtures/initial.json
 > python manage.py runserver
 ```
 
-Then visit `http://localhost:8000` to view the app. Alternatively you
-can use foreman and gunicorn to run the server locally
+Then visit `http://localhost:8000` to view the app.
+Visit `http://localhost:8000/admin` to login to admin with
+username: admin@oriefy.com
+password: oriefy123
 
 ```bash
 > foreman start
