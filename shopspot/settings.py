@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'registration'
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
@@ -121,3 +122,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+REGISTRATION_SITE_USER_EMAIL = 'shahzaibakash@hahaha.com'
+REGISTRATION_AUTO_LOGIN = True
+ACCOUNT_ACTIVATION_DAYS = 7
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
