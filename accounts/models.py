@@ -3,7 +3,8 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import (
     AbstractBaseUser,
-    BaseUserManager
+    BaseUserManager,
+    PermissionsMixin
 )
 
 
@@ -33,6 +34,7 @@ class UserManager(BaseUserManager):
         user_obj.is_active = is_active
         user_obj.is_seller = is_seller
         user_obj.is_buyer = is_buyer
+        user_obj.is_superuser=True
         user_obj.save(using=self._db)
         return user_obj
 
@@ -49,13 +51,13 @@ class UserManager(BaseUserManager):
             email,
             password=password,
             is_admin=True,
-            is_staff=True
+            is_staff=True,
             )
         return user
     
 
 # Create your models here.
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(
         _('Email'),
         max_length=150,
@@ -116,8 +118,8 @@ class User(AbstractBaseUser):
     def get_short_name(self):
         return self.email
 
-    def has_perm(self, perm, obj=None):
-        return True
+    # def has_perm(self, perm, obj=None):
+    #     return True
     
-    def has_module_perms(self, app_label):
-        return True
+    # def has_module_perms(self, app_label):
+    #     return True
