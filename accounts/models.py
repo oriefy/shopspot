@@ -58,6 +58,7 @@ class UserManager(BaseUserManager):
 
 # Create your models here.
 class User(AbstractBaseUser, PermissionsMixin):
+    """Manage the user personal data like, email, name, shopping roles etc."""
     email = models.EmailField(
         _('Email'),
         max_length=150,
@@ -105,17 +106,21 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     class Meta:
+        """Stores the metadata in User model."""
         verbose_name = _('user')
         verbose_name_plural = _('users')
 
     
     def __str__(self):
+        """Return the user string."""
         return self.email
     
     def get_full_name(self):
+        """Return the user full name."""
         return self.email
 
     def get_short_name(self):
+        """Return the user short name."""
         return self.email
 
     # def has_perm(self, perm, obj=None):
