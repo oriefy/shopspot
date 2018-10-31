@@ -9,6 +9,8 @@ from django.contrib.auth.models import (
 
 
 class UserManager(BaseUserManager):
+    """Manage User profiles."""
+
     def create_user(
         self,
         email,
@@ -19,6 +21,7 @@ class UserManager(BaseUserManager):
         is_seller=False,
         is_buyer=False
         ):
+        """Create a user."""
         
         if not email:
             raise ValueError("Users must have an email address.")
@@ -39,6 +42,7 @@ class UserManager(BaseUserManager):
         return user_obj
 
     def create_staffuser(self, email, password=None):
+        """Create staff members."""
         user = self.create_user(
             email,
             password=password,
@@ -47,6 +51,7 @@ class UserManager(BaseUserManager):
         return user
     
     def create_superuser(self, email, password=None):
+        """Create superuser."""
         user = self.create_user(
             email,
             password=password,
