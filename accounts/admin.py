@@ -8,6 +8,7 @@ User = get_user_model()
 class UserAdmin(admin.ModelAdmin):
     list_display = ('first_name', 'last_name', 'email', 'is_staff', 'is_admin', 'is_seller', 'is_buyer')
     list_filter = ('is_staff', 'is_admin', 'is_seller', 'is_buyer')
+    search_fields = ('first_name', 'last_name', 'email')
 
 
 admin.site.register(User, UserAdmin)
