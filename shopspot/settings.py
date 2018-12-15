@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-    'registration'
+    'explorer',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'shopspot.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,8 +122,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-REGISTRATION_SITE_USER_EMAIL = 'shahzaibakash@hahaha.com'
-REGISTRATION_AUTO_LOGIN = True
-ACCOUNT_ACTIVATION_DAYS = 7
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
