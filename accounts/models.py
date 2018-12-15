@@ -3,11 +3,14 @@ from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import (
     AbstractBaseUser,
-    BaseUserManager
+    BaseUserManager,
+    PermissionsMixin
 )
 
 
 class UserManager(BaseUserManager):
+    """Manage User profiles."""
+
     def create_user(
         self,
         email,
@@ -18,6 +21,7 @@ class UserManager(BaseUserManager):
         is_seller=False,
         is_buyer=False
         ):
+        """Create a user."""
         
         if not email:
             raise ValueError("Users must have an email address.")
@@ -33,10 +37,12 @@ class UserManager(BaseUserManager):
         user_obj.is_active = is_active
         user_obj.is_seller = is_seller
         user_obj.is_buyer = is_buyer
+        user_obj.is_superuser=True
         user_obj.save(using=self._db)
         return user_obj
 
     def create_staffuser(self, email, password=None):
+        """Create staff members."""
         user = self.create_user(
             email,
             password=password,
@@ -45,17 +51,19 @@ class UserManager(BaseUserManager):
         return user
     
     def create_superuser(self, email, password=None):
+        """Create superuser."""
         user = self.create_user(
             email,
             password=password,
             is_admin=True,
-            is_staff=True
+            is_staff=True,
             )
         return user
     
 
 # Create your models here.
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
+    """Manage the user personal data like, email, name, shopping roles etc."""
     email = models.EmailField(
         _('Email'),
         max_length=150,
@@ -103,21 +111,25 @@ class User(AbstractBaseUser):
     objects = UserManager()
 
     class Meta:
+        """Stores the metadata in User model."""
         verbose_name = _('user')
         verbose_name_plural = _('users')
 
     
     def __str__(self):
+        """Return the user string."""
         return self.email
     
     def get_full_name(self):
+        """Return the user full name."""
         return self.email
 
     def get_short_name(self):
+        """Return the user short name."""
         return self.email
 
-    def has_perm(self, perm, obj=None):
-        return True
+    # def has_perm(self, perm, obj=None):
+    #     return True
     
-    def has_module_perms(self, app_label):
-        return True
+    # def has_module_perms(self, app_label):
+    #     return True
