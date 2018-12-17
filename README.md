@@ -40,3 +40,5 @@ password: oriefy123
 ## Hall of fame
 Everyone who contributes to ShopSpot gets a spot here.
 * [@ZeroCoolHacker](https://github.com/ZeroCoolHacker)
+* [@MKaras93](https://github.com/MKaras93)
+* [@paulolimac](https://github.com/paulolimac)
