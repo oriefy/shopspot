@@ -19,7 +19,7 @@ Then you navigate to the base directory of the project and install the requireme
 
 ```bash
 > cd shopspot
-> pip install -r requirements.txt
+> pip install -Ur requirements/local.txt
 ```
 And finally you make migrations to the database, create a super user, and run the server
 ```bash
