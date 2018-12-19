@@ -1,0 +1,25 @@
+.logo {
+    font-family: 'Clicker Script', cursive;
+  }
+  
+  .logo a {
+    color: #212529;
+    text-decoration: none;
+  }
+  
+  footer {
+    font-size: .9rem;
+  }
+  
+  footer a {
+    color: #212529;
+  }
+  
+  .has-danger .radio,
+  .has-danger .checkbox {
+    color: #dc3545;
+  }
+  
+  .has-danger .invalid-feedback {
+    display: block;
+  }
